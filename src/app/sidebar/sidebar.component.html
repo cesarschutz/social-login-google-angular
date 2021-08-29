@@ -15,11 +15,12 @@
             </a>
         </li>
         <li (click)="logout()">
-            <a >
+            <a style="cursor:pointer">
+                <i class="pe-7s-angle-left-circle"></i>
                 <p>Log out</p>
             </a>
         </li>
-        <li class="separator hidden-lg hidden-md"></li>
+        <li class="separator"></li>
         <li routerLinkActive="active" *ngFor="let menuItem of menuItems" class="{{menuItem.class}}">
             <a [routerLink]="[menuItem.path]">
                 <i class="{{menuItem.icon}}"></i>
