@@ -9,25 +9,5 @@
             </button>
             <a class="navbar-brand">{{getTitle()}}</a>
         </div>
-        <div class="collapse navbar-collapse">
-            <ul class="nav navbar-nav navbar-right" *ngIf="socialAuthServive.authState | async as socialUser">
-                <li>
-                    <a routerLink="/user">
-                        {{socialUser.name}}
-                    </a>
-                </li>
-                <li>
-                    <a style="padding: 0;">
-                        <img src="{{socialUser.photoUrl}}" height="32" style="border-radius: 50%;" />
-                    </a>
-                </li>
-                <li (click)="logout()">
-                    <a href="">
-                        Log out
-                    </a>
-                </li>
-                <li class="separator hidden-lg hidden-md"></li>
-            </ul>
-        </div>
     </div>
 </nav>

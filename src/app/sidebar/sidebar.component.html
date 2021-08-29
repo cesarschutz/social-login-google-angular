@@ -8,18 +8,18 @@
         </a>
     </div>
     <ul class="nav responsive-nav" *ngIf="socialAuthServive.authState | async as socialUser">
-        <li routerLinkActive="active" *ngIf="isMobileMenu()">
+        <li routerLinkActive="active">
             <a routerLink="/user">
                 <i><img src="{{socialUser.photoUrl}}" height="32" style="border-radius: 50%;" /></i>
                 <p>{{socialUser.name}}</p>
             </a>
         </li>
-        <li *ngIf="isMobileMenu()" (click)="logout()">
+        <li (click)="logout()">
             <a >
                 <p>Log out</p>
             </a>
         </li>
-        <li class="separator hidden-lg hidden-md" *ngIf="isMobileMenu()"></li>
+        <li class="separator hidden-lg hidden-md"></li>
         <li routerLinkActive="active" *ngFor="let menuItem of menuItems" class="{{menuItem.class}}">
             <a [routerLink]="[menuItem.path]">
                 <i class="{{menuItem.icon}}"></i>
