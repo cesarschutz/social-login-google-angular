@@ -13,16 +13,18 @@ declare interface TableData {
 })
 export class PatientComponent implements OnInit {
 
-  public tableData: TableData;
+  public tableData: TableData = { headerRow: null, listPatients: null };
 
-  constructor(private patientService: PatientService) {
-
-  }
+  constructor(private patientService: PatientService) { }
 
   async ngOnInit() {
     this.tableData = {
       headerRow: ['ID', 'Registry', 'Name', 'Room', 'Responsible'],
       listPatients: await this.patientService.getAll()
     };
+  }
+
+  selectPatient(patient: PatientModel) {
+    alert(patient.name);
   }
 }
