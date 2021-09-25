@@ -20,7 +20,7 @@ export class PatientComponent implements OnInit {
 
   async ngOnInit() {
     this.tableData = {
-      headerRow: ['ID', 'Registro', 'Nome', 'Quarto', 'Responsável'],
+      headerRow: ['Registro', 'Nome', 'Quarto', 'Responsável'],
       listPatients: await this.patientService.getAll()
     };
   }

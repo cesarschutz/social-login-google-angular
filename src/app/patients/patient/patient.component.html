@@ -19,7 +19,6 @@
                             <tbody>
                                 <tr *ngFor="let patient of tableData.listPatients" style="cursor: pointer;"
                                     (click)="selectPatient(patient)">
-                                    <td>{{patient.id}}</td>
                                     <td>{{patient.registry}}</td>
                                     <td>{{patient.name}}</td>
                                     <td>{{patient.room}}</td>
