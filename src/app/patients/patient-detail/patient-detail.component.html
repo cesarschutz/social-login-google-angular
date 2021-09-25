@@ -4,7 +4,8 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="header">
-                        <h4 class="title">Editar Paciente</h4>
+                        <h4 *ngIf="patient.id" class="title">Editar Paciente</h4>
+                        <h4 *ngIf="!patient.id" class="title">Novo Paciente</h4>
                     </div>
                     <div class="content">
                         <form>
@@ -43,8 +44,9 @@
                                     </div>
                                 </div>
                             </div>
-                            <button type="submit" (click)="updatePatient()" class="btn btn-info btn-fill pull-right">Atualizar</button>
-                            <button style="margin-right: 10px;" (click)="deletePatient()" class="btn btn-danger btn-fill pull-right">Excluir</button>
+                            <button *ngIf="patient.id" type="submit" (click)="update()" class="btn btn-info btn-fill pull-right">Atualizar</button>
+                            <button *ngIf="!patient.id" type="submit" (click)="save()" class="btn btn-info btn-fill pull-right">Salvar</button>
+                            <button *ngIf="patient.id" style="margin-right: 10px;" (click)="delete()" class="btn btn-danger btn-fill pull-right">Excluir</button>
                             <div class="clearfix"></div>
                         </form>
                     </div>

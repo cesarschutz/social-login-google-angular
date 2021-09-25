@@ -28,6 +28,12 @@ export class PatientComponent implements OnInit {
   selectPatient(patient: PatientModel) {
     this.router.navigateByUrl('/patient-detail', {
       state: { patient: patient }
-    }); 
+    });
+  }
+
+  createPatient() {
+    this.router.navigateByUrl('/patient-detail', {
+      state: { patient: new PatientModel() }
+    });
   }
 }

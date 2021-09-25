@@ -34,13 +34,7 @@ export class PatientService {
     return this.http.delete(`${baseUrl}/${registry}`).toPromise();
   }
 
-  /**
-    create(data) {
-      return this.http.post(baseUrl, data);
-    }
-  
-    
-  
-     
-  */
+  create(data) {
+    return this.http.post(baseUrl, data).toPromise();
+  }
 }

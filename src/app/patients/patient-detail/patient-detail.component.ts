@@ -23,15 +23,23 @@ export class PatientDetail implements OnInit {
 
   }
 
-  async updatePatient() {
+  async save() {
+    this.patient.registry = (Math.floor(Math.random() * (999999 - 0 + 1)) + 1).toString();
+    debugger;
+    await this.patientService.create(this.patient);
+    this.notificationsService.showNotificationSuccess('Paciente criado!');
+    this.router.navigateByUrl('/patients');
+  }
+
+  async update() {
     await this.patientService.update(this.patient);
     this.notificationsService.showNotificationSuccess(`Paciente com ID ${this.patient.id} atualizado!`);
     this.router.navigateByUrl('/patients');
   }
 
-  async deletePatient() {
+  async delete() {
     await this.patientService.delete(this.patient.registry);
-    this.notificationsService.showNotificationSuccess(`Paciente com ID ${this.patient.id} Excluído!`);
+    this.notificationsService.showNotificationSuccess(`Paciente com ID ${this.patient.id} excluído!`);
     this.router.navigateByUrl('/patients');
   }
 }
