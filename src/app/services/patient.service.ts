@@ -3,12 +3,12 @@ import { HttpClient } from '@angular/common/http';
 
 const baseUrl = 'https://ilpi-backend.herokuapp.com/patients';
 
-export interface PatientModel {
-    id: string,
-    registry: string,
-    name: false,
-    room: false,
-    responsible: false
+export class PatientModel {
+    id: string;
+    registry: string;
+    name: string;
+    room: number;
+    responsible: string
 }
 
 @Injectable({
@@ -25,14 +25,16 @@ export class PatientService {
     get(registry) {
         return this.http.get(`${baseUrl}/${registry}`);
     }
+
+    update(data) {
+      return this.http.put(baseUrl, data).toPromise();
+    }
     /**
       create(data) {
         return this.http.post(baseUrl, data);
       }
     
-      update(id, data) {
-        return this.http.put(`${baseUrl}/${id}`, data);
-      }
+      
     
       delete(id) {
         return this.http.delete(`${baseUrl}/${id}`);

@@ -10,20 +10,23 @@ import { PatientModel, PatientService } from 'app/services/patient.service';
 })
 export class PatientDetail implements OnInit {
 
-  patient: PatientModel;
+  patient: PatientModel = new PatientModel();
 
   constructor(
     private router: Router,
     private patientService: PatientService,
     private notificationsService: NotificationsService) {
-    this.patient = this.router.getCurrentNavigation().extras.state.patient;
+    this.patient = this.router.getCurrentNavigation().extras?.state?.patient;
   }
 
   ngOnInit() {
 
   }
 
-  updatePatient() {
+  async updatePatient() {
+    debugger;
+    await this.patientService.update(this.patient);
     this.notificationsService.showNotificationSuccess('Paciente Atualizado!');
+    this.router.navigateByUrl('/patients');
   }
 }
