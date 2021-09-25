@@ -4,17 +4,19 @@ import { SocialAuthService } from 'angularx-social-login';
 
 declare const $: any;
 declare interface RouteInfo {
+  viewInMenu: boolean;
   path: string;
   title: string;
   icon: string;
   class: string;
 }
 export const ROUTES: RouteInfo[] = [
-  { path: '/dashboard', title: 'Home', icon: 'pe-7s-graph', class: '' },
+  { viewInMenu: true, path: '/dashboard', title: 'Home', icon: 'pe-7s-graph', class: '' },
   //{ path: '/user', title: 'Profile',  icon:'pe-7s-user', class: '' },
-  { path: '/patient', title: 'Pacientes',  icon:'pe-7s-id', class: '' },
+  { viewInMenu: true, path: '/patient', title: 'Pacientes',  icon:'pe-7s-id', class: '' },
+  { viewInMenu: false, path: '/patient-detail', title: 'Paciente',  icon:'pe-7s-id', class: '' },
   //{ path: '/typography', title: 'Typography',  icon:'pe-7s-news-paper', class: '' },
-  { path: '/icons', title: 'Icons',  icon:'pe-7s-science', class: '' },
+  { viewInMenu: true, path: '/icons', title: 'Icons',  icon:'pe-7s-science', class: '' },
   //{ path: '/maps', title: 'Maps',  icon:'pe-7s-map-marker', class: '' },
   //{ path: '/notifications', title: 'Notifications',  icon:'pe-7s-bell', class: '' },
   //{ path: '/upgrade', title: 'Upgrade to PRO',  icon:'pe-7s-rocket', class: 'active-pro' },
@@ -30,7 +32,7 @@ export class SidebarComponent implements OnInit {
   constructor(public socialAuthServive: SocialAuthService, private router: Router) { }
 
   ngOnInit() {
-    this.menuItems = ROUTES.filter(menuItem => menuItem);
+    this.menuItems = ROUTES.filter(menuItem => menuItem.viewInMenu);
   }
 
   isMobileMenu() {

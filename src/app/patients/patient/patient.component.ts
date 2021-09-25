@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PatientModel, PatientService } from 'app/services/patient.service';
+import { Router } from '@angular/router';
 
 declare interface TableData {
   headerRow: string[];
@@ -15,7 +16,7 @@ export class PatientComponent implements OnInit {
 
   public tableData: TableData = { headerRow: null, listPatients: null };
 
-  constructor(private patientService: PatientService) { }
+  constructor(private router: Router, private patientService: PatientService) { }
 
   async ngOnInit() {
     this.tableData = {
@@ -25,6 +26,8 @@ export class PatientComponent implements OnInit {
   }
 
   selectPatient(patient: PatientModel) {
-    alert(patient.name);
+    this.router.navigateByUrl('/patient-detail', {
+      state: { patient: patient }
+    }); 
   }
 }
