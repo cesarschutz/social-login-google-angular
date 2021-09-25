@@ -26,10 +26,10 @@ export class PatientComponent implements OnInit {
         ['2', '12345', 'Cesar', '001', 'Cesar']
       ]
     };
-    this.retrieveTutorials();
+    this.retrievePatients();
   }
 
-  private retrieveTutorials() {
+  private retrievePatients() {
     this.patientService.getAll()
       .subscribe(
         data => {
