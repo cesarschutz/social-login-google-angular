@@ -20,7 +20,7 @@ export class PatientService {
     constructor(private http: HttpClient) { }
 
     getAll() {
-        return this.http.get(baseUrl);
+        return this.http.get(baseUrl).toPromise();
     }
 
     get(registry) {

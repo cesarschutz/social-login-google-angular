@@ -3,7 +3,7 @@ import { PatientModel, PatientService } from 'app/services/patient.service';
 
 declare interface TableData {
   headerRow: string[];
-  dataRows: string[][];
+  listPatients: any;
 }
 
 @Component({
@@ -13,34 +13,16 @@ declare interface TableData {
 })
 export class PatientComponent implements OnInit {
 
-  public tableData1: TableData;
-  public listPatients: any;
+  public tableData: TableData;
 
-  constructor(private patientService: PatientService) { }
+  constructor(private patientService: PatientService) {
 
-  ngOnInit() {
-    this.tableData1 = {
+  }
+
+  async ngOnInit() {
+    this.tableData = {
       headerRow: ['ID', 'Registry', 'Name', 'Room', 'Responsible'],
-      dataRows: [
-        ['1', '12345', 'Michel', '001', 'Michel'],
-        ['2', '12345', 'Cesar', '001', 'Cesar']
-      ]
+      listPatients: await this.patientService.getAll()
     };
-    this.retrievePatients();
   }
-
-  private retrievePatients() {
-    this.patientService.getAll()
-      .subscribe(
-        data => {
-          this.listPatients = data;
-          debugger;
-          console.log(data);
-        },
-        error => {
-          debugger;
-          console.log(error);
-        });
-  }
-
 }
