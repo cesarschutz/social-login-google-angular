@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { NotificationsService } from 'app/services/notifications.service';
 import { PatientModel, PatientService } from 'app/services/patient.service';
-
-declare var $: any;
 
 @Component({
   selector: 'app-patient-datil',
@@ -15,7 +14,8 @@ export class PatientDetail implements OnInit {
 
   constructor(
     private router: Router,
-    private patientService: PatientService) {
+    private patientService: PatientService,
+    private notificationsService: NotificationsService) {
     this.patient = this.router.getCurrentNavigation().extras.state.patient;
   }
 
@@ -24,22 +24,6 @@ export class PatientDetail implements OnInit {
   }
 
   updatePatient() {
-    alert('oi');
-    this.showNotification('Sucesso!', 'Paciente Atualizado com Sucesso!' ,'success');
+    this.notificationsService.showNotificationSuccess('Sucesso!', 'Paciente Atualizado com Sucesso!');
   }
-
-  showNotification(title, message, type) {
-    $.notify({
-      title: title,
-      message: message
-    }, {
-      type: type,
-      timer: 500,
-      placement: {
-        from: 'top',
-        align: 'right'
-      }
-    });
-  }
-
 }

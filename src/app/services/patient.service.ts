@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 const baseUrl = 'https://ilpi-backend.herokuapp.com/patients';
-//const baseUrl = 'https://run.mocky.io/v3/8cb8d1ed-3b74-4ff3-b586-73b4a89eb91b';
 
 export interface PatientModel {
     id: string,
