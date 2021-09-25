@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { PatientModel } from 'app/services/patient.service';
 
 @Component({
   selector: 'app-patient-datil',
@@ -7,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PatientDetail implements OnInit {
 
-  constructor() { }
+  patient: PatientModel;
+
+  constructor(private router: Router) {
+    this.patient = this.router.getCurrentNavigation().extras.state.patient;
+  }
 
   ngOnInit() {
+
   }
 
 }
