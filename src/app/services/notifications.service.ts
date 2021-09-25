@@ -10,9 +10,9 @@ export class NotificationsService {
 
   constructor(private http: HttpClient) { }
 
-  showNotificationSuccess(title: string, message: string) {
+  showNotificationSuccess(message: string) {
     $.notify({
-      title: title,
+      title: 'Sucesso',
       message: message
     }, {
       type: 'success',

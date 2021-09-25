@@ -24,6 +24,6 @@ export class PatientDetail implements OnInit {
   }
 
   updatePatient() {
-    this.notificationsService.showNotificationSuccess('Sucesso!', 'Paciente Atualizado com Sucesso!');
+    this.notificationsService.showNotificationSuccess('Paciente Atualizado!');
   }
 }
