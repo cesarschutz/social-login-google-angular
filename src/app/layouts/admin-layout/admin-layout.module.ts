@@ -11,7 +11,7 @@ import { AdminLayoutRoutes } from './admin-layout.routing';
 import { HomeComponent } from '../../home/home.component';
 import { UserComponent } from '../../user/user.component';
 import { TablesComponent } from '../../tables/tables.component';
-import { TypographyComponent } from '../../typography/typography.component';
+import { PatientComponent } from '../../patient/patient.component';
 import { IconsComponent } from '../../icons/icons.component';
 import { MapsComponent } from '../../maps/maps.component';
 import { NotificationsComponent } from '../../notifications/notifications.component';
@@ -30,7 +30,7 @@ import { UpgradeComponent } from '../../upgrade/upgrade.component';
     HomeComponent,
     UserComponent,
     TablesComponent,
-    TypographyComponent,
+    PatientComponent,
     IconsComponent,
     MapsComponent,
     NotificationsComponent,
