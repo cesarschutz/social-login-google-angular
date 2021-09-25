@@ -24,9 +24,14 @@ export class PatientDetail implements OnInit {
   }
 
   async updatePatient() {
-    debugger;
     await this.patientService.update(this.patient);
-    this.notificationsService.showNotificationSuccess('Paciente Atualizado!');
+    this.notificationsService.showNotificationSuccess(`Paciente com ID ${this.patient.id} atualizado!`);
+    this.router.navigateByUrl('/patients');
+  }
+
+  async deletePatient() {
+    await this.patientService.delete(this.patient.registry);
+    this.notificationsService.showNotificationSuccess(`Paciente com ID ${this.patient.id} Excluído!`);
     this.router.navigateByUrl('/patients');
   }
 }
