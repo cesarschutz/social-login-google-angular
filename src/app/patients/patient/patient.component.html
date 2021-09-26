@@ -4,7 +4,12 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="header">
-                        <button (click)="createPatient()" class="btn btn-info btn-fill pull-left">Novo Paciente</button><br /><br /><br />
+                        <button (click)="createPatient()" class="btn btn-info btn-fill pull-left">
+                            Novo Paciente
+                        </button>
+                        <br />
+                        <br />
+                        <br />
 
                         <h4 class="title">Pacientes</h4>
                         <p class="category">Lista de todos os pacientes da ILPI</p>
@@ -17,12 +22,24 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr *ngFor="let patient of tableData.listPatients" style="cursor: pointer;"
-                                    (click)="selectPatient(patient)">
-                                    <td>{{patient.registry}}</td>
-                                    <td>{{patient.name}}</td>
-                                    <td>{{patient.room}}</td>
-                                    <td>{{patient.responsible}}</td>
+                                <tr *ngFor="let patient of tableData.listPatients">
+                                    <td (click)="selectPatient(patient)" style="cursor: pointer;">
+                                        {{patient.registry}}
+                                    </td>
+                                    <td (click)="selectPatient(patient)" style="cursor: pointer;">
+                                        {{patient.name}}
+                                    </td>
+                                    <td (click)="selectPatient(patient)" style="cursor: pointer;">
+                                        {{patient.room}}
+                                    </td>
+                                    <td (click)="selectPatient(patient)" style="cursor: pointer;">
+                                        {{patient.responsible}}
+                                    </td>
+                                    <td>
+                                        <a style="cursor: pointer; font-size: 20px;" (click)="viewVitalSigns(patient)">
+                                            <i class="pe-7s-note2" style="color: red;"></i>
+                                        </a>
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>

@@ -36,4 +36,10 @@ export class PatientComponent implements OnInit {
       state: { patient: new PatientModel() }
     });
   }
+
+  viewVitalSigns(patient: PatientModel) {
+    this.router.navigateByUrl('/vital-signs', {
+      state: { patient: patient }
+    });
+  }
 }
