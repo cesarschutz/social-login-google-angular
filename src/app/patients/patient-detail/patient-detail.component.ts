@@ -25,7 +25,6 @@ export class PatientDetail implements OnInit {
 
   async save() {
     this.patient.registry = (Math.floor(Math.random() * (999999 - 0 + 1)) + 1).toString();
-    debugger;
     await this.patientService.create(this.patient);
     this.notificationsService.showNotificationSuccess('Paciente criado!');
     this.router.navigateByUrl('/patients');

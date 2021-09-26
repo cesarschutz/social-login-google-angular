@@ -29,7 +29,7 @@ export class VitalSignsComponent implements OnInit {
   }
 
   searchPatients() {
-    if(this.patientRegistrySearch){
+    if (this.patientRegistrySearch) {
       this.tableData.listPatients = this.listPatients.filter(patient => patient.registry.indexOf(this.patientRegistrySearch) !== -1);
     } else {
       this.tableData.listPatients = this.listPatients;

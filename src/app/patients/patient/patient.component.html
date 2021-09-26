@@ -10,9 +10,9 @@
                         <br />
                         <br />
                         <br />
-
-                        <h4 class="title">Pacientes</h4>
-                        <p class="category">Lista de todos os pacientes da ILPI</p>
+                        <input type="text" class="form-control" [(ngModel)]="patientRegistrySearch"
+                            name="patientRegistrySearch" placeholder="Digite o nome do paciente para pesquisar"
+                            (keyup)="searchPatients()">
                     </div>
                     <div class="content table-responsive table-full-width">
                         <table class="table table-hover table-striped">

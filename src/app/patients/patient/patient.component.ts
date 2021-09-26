@@ -15,13 +15,16 @@ declare interface TableData {
 export class PatientComponent implements OnInit {
 
   public tableData: TableData = { headerRow: null, listPatients: null };
+  listPatients: any;
+  patientRegistrySearch: string;
 
   constructor(private router: Router, private patientService: PatientService) { }
 
   async ngOnInit() {
+    this.listPatients = await this.patientService.getAll();
     this.tableData = {
       headerRow: ['Registro', 'Nome', 'Quarto', 'Responsável'],
-      listPatients: await this.patientService.getAll()
+      listPatients: this.listPatients
     };
   }
 
@@ -41,5 +44,13 @@ export class PatientComponent implements OnInit {
     this.router.navigateByUrl('/vital-signs', {
       state: { patient: patient }
     });
+  }
+
+  searchPatients() {
+    if (this.patientRegistrySearch) {
+      this.tableData.listPatients = this.listPatients.filter(patient => patient.name.toUpperCase().indexOf(this.patientRegistrySearch.toUpperCase()) !== -1);
+    } else {
+      this.tableData.listPatients = this.listPatients;
+    }
   }
 }
