@@ -18,6 +18,7 @@ import { NotificationsComponent } from '../../notifications/notifications.compon
 import { UpgradeComponent } from '../../upgrade/upgrade.component';
 import { PatientDetail } from 'app/patients/patient-detail/patient-detail.component';
 import { VitalSignsComponent } from 'app/patients/vital-signs-list/vital-signs.component';
+import { VitalSignsCreateComponent } from 'app/patients/vital-signs-create/vital-signs-create.component';
 
 
 @NgModule({
@@ -35,6 +36,7 @@ import { VitalSignsComponent } from 'app/patients/vital-signs-list/vital-signs.c
     PatientComponent,
     PatientDetail,
     VitalSignsComponent,
+    VitalSignsCreateComponent,
     IconsComponent,
     MapsComponent,
     NotificationsComponent,

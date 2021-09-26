@@ -35,4 +35,9 @@ export class VitalSignsComponent implements OnInit {
     this.notificationsService.showNotificationSuccess(`Sinal Vital excluído!`);
   }
 
+  createVitalSign(){
+    this.router.navigateByUrl('/vital-signs-create', {
+      state: { patient: this.patient }
+    });
+  }
 }

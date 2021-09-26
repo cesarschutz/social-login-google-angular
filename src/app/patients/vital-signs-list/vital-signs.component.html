@@ -7,6 +7,11 @@
                         <h4 class="title"><b>Paciente:</b> {{patient.name}}</h4>
                         <p class="category"><b>Registro:</b> {{patient.registry}}</p>
                         <p class="category"><b>Quarto:</b> {{patient.room}}</p>
+                        <br />
+                        <button (click)="createVitalSign()" class="btn btn-info btn-fill pull-left">
+                            Registrar
+                        </button>
+                        <br />
                     </div>
                     <div class="content table-responsive table-full-width">
                         <table class="table table-hover">
