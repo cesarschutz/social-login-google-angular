@@ -2,28 +2,47 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-12">
-                <div class="card">
+                <div class="card card-plain">
                     <div class="header">
-                        <h4 class="title">Pesquisar Paciente</h4>
-                        <p class="category">Pesquise um paciente para visualizar seus dados de sinais vitais</p>
-                        <input type="text" class="form-control" [(ngModel)]="patientRegistrySearch"
-                            name="patientRegistrySearch" placeholder="Digite o registro de um paciente"
-                            (keyup)="searchPatients()">
+                        <h4 class="title"><b>Paciente:</b> {{patient.name}}</h4>
+                        <p class="category"><b>Registro:</b> {{patient.registry}}</p>
+                        <p class="category"><b>Quarto:</b> {{patient.room}}</p>
                     </div>
                     <div class="content table-responsive table-full-width">
-                        <table class="table table-hover table-striped">
+                        <table class="table table-hover">
                             <thead>
                                 <tr>
                                     <th *ngFor="let cell of tableData.headerRow">{{ cell }}</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr *ngFor="let patient of tableData.listPatients" style="cursor: pointer;"
-                                    (click)="selectPatient(patient)">
-                                    <td>{{patient.registry}}</td>
-                                    <td>{{patient.name}}</td>
-                                    <td>{{patient.room}}</td>
-                                </tr>
+                                <tr *ngFor="let vitalSign of patient.vitalSigns">
+                                    <td style="cursor: pointer;">
+                                        {{vitalSign.heartBeatsPerMinute}}
+                                    </td>
+                                    <td style="cursor: pointer;">
+                                        {{vitalSign.breathsPerMinute}}
+                                    </td>
+                                    <td style="cursor: pointer;">
+                                        {{vitalSign.bodyTemperature}}
+                                    </td>
+                                    <td style="cursor: pointer;">
+                                        {{vitalSign.systolicPressure}}
+                                    </td>
+                                    <td style="cursor: pointer;">
+                                        {{vitalSign.diastolicPressure}}
+                                    </td>
+                                    <td style="cursor: pointer;">
+                                        {{vitalSign.bloodOxygen}}
+                                    </td>
+                                    <td style="cursor: pointer;">
+                                        {{vitalSign.observation}}
+                                    </td>
+                                    <td>
+                                        <a style="cursor: pointer; font-size: 20px;" (click)="deleteVitalsign(vitalSign)">
+                                            <i class="pe-7s-trash" style="color: red;"></i>
+                                        </a>
+                                    </td>
                             </tbody>
                         </table>
                     </div>

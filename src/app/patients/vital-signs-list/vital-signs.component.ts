@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { PatientModel, PatientService } from 'app/services/patient.service';
 import { Router } from '@angular/router';
+import { NotificationsService } from 'app/services/notifications.service';
 
 declare interface TableData {
   headerRow: string[];
-  listPatients: any;
 }
 
 @Component({
@@ -14,32 +14,25 @@ declare interface TableData {
 })
 export class VitalSignsComponent implements OnInit {
 
-  public tableData: TableData = { headerRow: null, listPatients: null };
-  listPatients: any;
-  patientRegistrySearch: string;
+  patient: PatientModel = new PatientModel();
 
-  constructor(private router: Router, private patientService: PatientService) { }
+  public tableData: TableData = { headerRow: null };
+
+  constructor(private router: Router, private patientService: PatientService, private notificationsService: NotificationsService) {
+    this.patient = this.router.getCurrentNavigation().extras?.state?.patient;
+  }
 
   async ngOnInit() {
-    this.listPatients = await this.patientService.getAll();
+    this.patient.vitalSigns = await this.patientService.getVitalSigns(this.patient.registry);
     this.tableData = {
-      headerRow: ['Registro', 'Nome', 'Quarto'],
-      listPatients: this.listPatients
+      headerRow: ['Frequência cardíaca', 'Respiração por minuto', 'Temperatura corporal', 'Pressão sistólica', 'Pressão diastólica', 'oxigênio no sangue', 'Observação'],
     };
   }
 
-  searchPatients() {
-    if (this.patientRegistrySearch) {
-      this.tableData.listPatients = this.listPatients.filter(patient => patient.registry.indexOf(this.patientRegistrySearch) !== -1);
-    } else {
-      this.tableData.listPatients = this.listPatients;
-    }
-  }
-
-  selectPatient(patient: PatientModel) {
-    this.router.navigateByUrl('/patient-detail', {
-      state: { patient: patient }
-    });
+  async deleteVitalsign(vitalSign) {
+    await this.patientService.deleteVitalSign(this.patient.registry, vitalSign.id);
+    this.patient.vitalSigns = await this.patientService.getVitalSigns(this.patient.registry);
+    this.notificationsService.showNotificationSuccess(`Sinal Vital excluído!`);
   }
 
 }
