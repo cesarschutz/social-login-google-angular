@@ -3,8 +3,9 @@ import { HttpClient } from '@angular/common/http';
 
 const baseUrl = 'https://ilpi-backend.herokuapp.com/patients';
 
-export class VitalSign {
+export class VitalSignModel {
   id: string
+  patientRegistry: string
   createdAt: string
   heartBeatsPerMinute: number
   breathsPerMinute: number
@@ -53,5 +54,9 @@ export class PatientService {
 
   deleteVitalSign(patientRegistry: string, vitalSignId: string) {
     return this.http.delete(`${baseUrl}/${patientRegistry}/vital-signs/${vitalSignId}`).toPromise();
+  }
+
+  createVitalSign(data) {
+    return this.http.post(`${baseUrl}/${data.patientRegistry}/vital-signs`, data).toPromise();
   }
 }

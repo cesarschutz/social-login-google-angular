@@ -1,1 +1,69 @@
-oieeee
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="header">
+                        <h4 class="title">Cadastrar Sinal Vital</h4>
+                        <h4 class="title"><b>Paciente:</b> {{patient.name}}</h4>
+                        <p class="category"><b>Registro:</b> {{patient.registry}}</p>
+                        <p class="category"><b>Quarto:</b> {{patient.room}}</p>
+                    </div>
+                    <div class="content">
+                        <form>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label>Frequência cardíaca</label>
+                                        <input type="number" class="form-control" [(ngModel)]="vitalSign.heartBeatsPerMinute" name="heartBeatsPerMinute">
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label>Respiração por minuto</label>
+                                        <input type="number" class="form-control" [(ngModel)]="vitalSign.breathsPerMinute"
+                                            name="breathsPerMinute">
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label>Temperatura corporal</label>
+                                        <input type="number" class="form-control" [(ngModel)]="vitalSign.bodyTemperature"
+                                            name="bodyTemperature">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label>Pressão sistólica</label>
+                                        <input type="number" class="form-control" [(ngModel)]="vitalSign.systolicPressure" name="systolicPressure">
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label>Pressão diastólica</label>
+                                        <input type="number" class="form-control" [(ngModel)]="vitalSign.diastolicPressure"
+                                            name="diastolicPressure">
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label>oxigênio no sangue</label>
+                                        <input type="number" class="form-control" [(ngModel)]="vitalSign.bloodOxygen"
+                                            name="bloodOxygen">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <button type="submit" (click)="save()"
+                                class="btn btn-info btn-fill pull-right">Salvar</button>
+                            <div class="clearfix"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
