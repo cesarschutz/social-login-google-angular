@@ -16,7 +16,6 @@ export const ROUTES: RouteInfo[] = [
   { viewInMenu: false, path: '/patient-detail', title: 'Paciente',  icon:'pe-7s-id', class: '' },
   { viewInMenu: false, path: '/vital-signs', title: 'Sinais Vitais',  icon:'pe-7s-note2', class: '' },
   { viewInMenu: false, path: '/vital-signs-create', title: 'Cadastrar Sinais Vitais',  icon:'pe-7s-note2', class: '' },
-  { viewInMenu: true, path: '/icons', title: 'Icons',  icon:'pe-7s-science', class: '' },
 ];
 
 @Component({
