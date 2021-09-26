@@ -25,7 +25,7 @@ export class VitalSignsComponent implements OnInit {
   async ngOnInit() {
     this.patient.vitalSigns = await this.patientService.getVitalSigns(this.patient.registry);
     this.tableData = {
-      headerRow: ['Frequência cardíaca', 'Respiração por minuto', 'Temperatura corporal', 'Pressão sistólica', 'Pressão diastólica', 'oxigênio no sangue', 'Observação'],
+      headerRow: ['Data', 'Frequência cardíaca', 'Respiração por minuto', 'Temperatura corporal', 'Pressão sistólica', 'Pressão diastólica', 'oxigênio no sangue'],
     };
   }
 

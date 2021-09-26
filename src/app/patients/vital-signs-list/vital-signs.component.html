@@ -23,6 +23,9 @@
                             <tbody>
                                 <tr *ngFor="let vitalSign of patient.vitalSigns">
                                     <td style="cursor: pointer;">
+                                        {{vitalSign.createdAt}}
+                                    </td>
+                                    <td style="cursor: pointer;">
                                         {{vitalSign.heartBeatsPerMinute}}
                                     </td>
                                     <td style="cursor: pointer;">
@@ -39,9 +42,6 @@
                                     </td>
                                     <td style="cursor: pointer;">
                                         {{vitalSign.bloodOxygen}}
-                                    </td>
-                                    <td style="cursor: pointer;">
-                                        {{vitalSign.observation}}
                                     </td>
                                     <td>
                                         <a style="cursor: pointer; font-size: 20px;" (click)="deleteVitalsign(vitalSign)">
